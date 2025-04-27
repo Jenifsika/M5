@@ -9,19 +9,20 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
-
+```
+#include <stdio.h>
+int main() {
+    double num = 23.65;  
+    double *ptr;          
+    ptr = &num;          
+    *ptr = 25.0;         
+    printf("The modified value is: %.2f\n", num);  
+    return 0;
+}
+```
 ## OUTPUT:
  	
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/ee7ce4e3-232a-4f82-b6ad-d8e9a7af98a2)
 
 ## RESULT:
 Thus the program to convert a 23.65 into 25 using pointer has been executed successfully.
@@ -45,7 +46,25 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+unsigned long long calculateProduct(int n) {
+    if (n == 0 || n == 1)  
+        return 1;
+    else
+        return n * calculateProduct(n - 1); 
+}
+int main() {
+    int n = 12;  
+    unsigned long long product;  
+    product = calculateProduct(n); 
+    printf("The product of the first 12 natural numbers is: %llu\n", product); 
+
+    return 0;
+}
+```
 ## OUTPUT:
+![image](https://github.com/user-attachments/assets/4655ebb1-9de3-4e00-b5df-5c8f70636672)
          		
 ## RESULT:
 
@@ -67,18 +86,47 @@ Write C Program to find Sum of each row of a Matrix
 3.	Inside the loop, calculate the sum of the elements in each row.
 4.	Print the sum for each row.
 
-## PROGRAM:
+## PROGRAM:#include <stdio.h>
+
+int main() {
+    int rows, cols;
+    int i, j, sum;
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+    printf("Enter number of columns: ");
+    scanf("%d", &cols);
+    int matrix[rows][cols];
+    printf("Enter elements of the matrix:\n");
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    for (i = 0; i < rows; i++) {
+        sum = 0; 
+        for (j = 0; j < cols; j++) {
+            sum += matrix[i][j];
+        }
+        printf("Sum of row %d = %d\n", i + 1, sum);
+    }
+
+    return 0;
+}
+```
+```
 
 
 
 ## OUTPUT
 
+![image](https://github.com/user-attachments/assets/dec2e0dd-4a4b-4bfb-a12b-d93d548fc494)
 
  
  
 
  ## RESULT
- 
+ Thus the C program to find Sum of each row of a Matrix process executed successfully.
+
 
 
 # EX-24-STRINGS
@@ -96,19 +144,38 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
-
-
+```
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    int num_rows, i, j, len, index = 0;
+    printf("Enter a string: ");
+    scanf("%s", str);
+    printf("Enter number of rows: ");
+    scanf("%d", &num_rows);
+    len = strlen(str);
+    for (i = 1; i <= num_rows; i++) {
+        for (j = 1; j <= num_rows - i; j++) {
+            printf(" ");
+        }
+        for (j = 1; j <= i; j++) {
+            printf("%c ", str[index]);
+            index = (index + 1) % len;
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
  ## OUTPUT
+![image](https://github.com/user-attachments/assets/c8c7630c-3f27-44c9-a9e7-671b5f02049d)
 
  
 
 ## RESULT
 
-Thus the C program to String process executed successfully
- 
-
- 
-.
+Thus the C program to String process executed successfully.
 
 
 
@@ -132,8 +199,36 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    int arr[10];
+    int *parr;
+    int n, i;
+
+    parr = arr; // Initialize pointer to point to array
+
+    printf("Enter the number of elements (up to 6): ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", (parr + i)); // Reading elements using pointer
+    }
+
+    printf("The elements are:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", *(parr + i)); // Displaying elements using pointer
+    }
+
+    printf("\n");
+
+    return 0;
+}
+```
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/5d34db54-01da-48ba-be57-76c06389db12)
 
  
 
