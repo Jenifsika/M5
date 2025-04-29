@@ -86,10 +86,14 @@ Write C Program to find Sum of each row of a Matrix
 3.	Inside the loop, calculate the sum of the elements in each row.
 4.	Print the sum for each row.
 
-## PROGRAM:#include <stdio.h>
+## PROGRAM:
+```
+#include <stdio.h>
 
-int main() {
+int main() 
+{
     int rows, cols;
+    
     int i, j, sum;
     printf("Enter number of rows: ");
     scanf("%d", &rows);
@@ -112,7 +116,6 @@ int main() {
 
     return 0;
 }
-```
 ```
 
 
